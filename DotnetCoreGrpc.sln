@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRpc.Client", "GRpc.Client\GRpc.Client.csproj", "{426B2233-9899-4B1B-89B0-0FE35B1F226B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Client", "GRpc.Client\GRpc.Client.csproj", "{426B2233-9899-4B1B-89B0-0FE35B1F226B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRpc.Server", "GRpc.Server\GRpc.Server.csproj", "{0B81833C-E78A-4B87-A3E6-3B69F78135B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Server", "GRpc.Server\GRpc.Server.csproj", "{0B81833C-E78A-4B87-A3E6-3B69F78135B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRpc.Model", "GRpc.Model\GRpc.Model.csproj", "{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Model", "GRpc.Model\GRpc.Model.csproj", "{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grpc.Client.Web", "Grpc.Client.Web\Grpc.Client.Web.csproj", "{09F2E3B1-B182-457D-9FE0-2871CCF1874F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09F2E3B1-B182-457D-9FE0-2871CCF1874F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09F2E3B1-B182-457D-9FE0-2871CCF1874F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09F2E3B1-B182-457D-9FE0-2871CCF1874F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09F2E3B1-B182-457D-9FE0-2871CCF1874F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
