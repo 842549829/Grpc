@@ -1,6 +1,6 @@
 using System;
 
-namespace Grpc.Client.Web
+namespace GRpc.Client.Web
 {
     public class WeatherForecast
     {

@@ -24,22 +24,42 @@ namespace GRpc.Model {
     static UserReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgp1c2VyLnByb3RvEgVHcmVldBoPdGltZXN0YW1wLnByb3RvIkkKDEhlbGxv",
-            "UmVxdWVzdBIMCgRuYW1lGAEgASgJEisKB3VwX3RpbWUYAiABKAsyGi5nb29n",
-            "bGUucHJvdG9idWYuVGltZXN0YW1wIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2Fn",
-            "ZRgBIAEoCTI/CgdHcmVldGVyEjQKCFNheUhlbGxvEhMuR3JlZXQuSGVsbG9S",
-            "ZXF1ZXN0GhEuR3JlZXQuSGVsbG9SZXBseSIAQg2qAgpHUnBjLk1vZGVsYgZw",
-            "cm90bzM="));
+            "Cgp1c2VyLnByb3RvEgVHcmVldBoPdGltZXN0YW1wLnByb3RvIpwBCgxIZWxs",
+            "b1JlcXVlc3QSDAoEbmFtZRgBIAEoCRIrCgd1cF90aW1lGAIgASgLMhouZ29v",
+            "Z2xlLnByb3RvYnVmLlRpbWVzdGFtcBILCgNhZ2UYAyABKAUSIwoJTW9kZWxM",
+            "aXN0GAQgAygLMhAuR3JlZXQuVGVzdE1vZGVsEh8KBU1vZGVsGAUgASgLMhAu",
+            "R3JlZXQuVGVzdE1vZGVsIkIKCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEo",
+            "CRIjCglNb2RlbExpc3QYAiADKAsyEC5HcmVldC5UZXN0TW9kZWwiRQoJVGVz",
+            "dE1vZGVsEgsKA2tleRgBIAEoCRIMCgRtb25nGAIgASgBEh0KBmNvcnB1cxgD",
+            "IAEoDjINLkdyZWV0LkNvcnB1cypaCgZDb3JwdXMSDQoJVU5JVkVSU0FMEAAS",
+            "BwoDV0VCEAESCgoGSU1BR0VTEAISCQoFTE9DQUwQAxIICgRORVdTEAQSDAoI",
+            "UFJPRFVDVFMQBRIJCgVWSURFTxAGMj8KB0dyZWV0ZXISNAoIU2F5SGVsbG8S",
+            "Ey5HcmVldC5IZWxsb1JlcXVlc3QaES5HcmVldC5IZWxsb1JlcGx5IgBCDaoC",
+            "CkdScGMuTW9kZWxiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::GRpc.Model.HelloRequest), global::GRpc.Model.HelloRequest.Parser, new[]{ "Name", "UpTime" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::GRpc.Model.HelloReply), global::GRpc.Model.HelloReply.Parser, new[]{ "Message" }, null, null, null)
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GRpc.Model.Corpus), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::GRpc.Model.HelloRequest), global::GRpc.Model.HelloRequest.Parser, new[]{ "Name", "UpTime", "Age", "ModelList", "Model" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GRpc.Model.HelloReply), global::GRpc.Model.HelloReply.Parser, new[]{ "Message", "ModelList" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::GRpc.Model.TestModel), global::GRpc.Model.TestModel.Parser, new[]{ "Key", "Mong", "Corpus" }, null, null, null)
           }));
     }
     #endregion
 
   }
+  #region Enums
+  public enum Corpus {
+    [pbr::OriginalName("UNIVERSAL")] Universal = 0,
+    [pbr::OriginalName("WEB")] Web = 1,
+    [pbr::OriginalName("IMAGES")] Images = 2,
+    [pbr::OriginalName("LOCAL")] Local = 3,
+    [pbr::OriginalName("NEWS")] News = 4,
+    [pbr::OriginalName("PRODUCTS")] Products = 5,
+    [pbr::OriginalName("VIDEO")] Video = 6,
+  }
+
+  #endregion
+
   #region Messages
   /// <summary>
   /// The request message containing the user's name.
@@ -71,6 +91,9 @@ namespace GRpc.Model {
     public HelloRequest(HelloRequest other) : this() {
       name_ = other.name_;
       upTime_ = other.upTime_ != null ? other.upTime_.Clone() : null;
+      age_ = other.age_;
+      modelList_ = other.modelList_.Clone();
+      model_ = other.model_ != null ? other.model_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -101,6 +124,38 @@ namespace GRpc.Model {
       }
     }
 
+    /// <summary>Field number for the "age" field.</summary>
+    public const int AgeFieldNumber = 3;
+    private int age_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Age {
+      get { return age_; }
+      set {
+        age_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ModelList" field.</summary>
+    public const int ModelListFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::GRpc.Model.TestModel> _repeated_modelList_codec
+        = pb::FieldCodec.ForMessage(34, global::GRpc.Model.TestModel.Parser);
+    private readonly pbc::RepeatedField<global::GRpc.Model.TestModel> modelList_ = new pbc::RepeatedField<global::GRpc.Model.TestModel>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GRpc.Model.TestModel> ModelList {
+      get { return modelList_; }
+    }
+
+    /// <summary>Field number for the "Model" field.</summary>
+    public const int ModelFieldNumber = 5;
+    private global::GRpc.Model.TestModel model_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GRpc.Model.TestModel Model {
+      get { return model_; }
+      set {
+        model_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as HelloRequest);
@@ -116,6 +171,9 @@ namespace GRpc.Model {
       }
       if (Name != other.Name) return false;
       if (!object.Equals(UpTime, other.UpTime)) return false;
+      if (Age != other.Age) return false;
+      if(!modelList_.Equals(other.modelList_)) return false;
+      if (!object.Equals(Model, other.Model)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -124,6 +182,9 @@ namespace GRpc.Model {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (upTime_ != null) hash ^= UpTime.GetHashCode();
+      if (Age != 0) hash ^= Age.GetHashCode();
+      hash ^= modelList_.GetHashCode();
+      if (model_ != null) hash ^= Model.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -145,6 +206,15 @@ namespace GRpc.Model {
         output.WriteRawTag(18);
         output.WriteMessage(UpTime);
       }
+      if (Age != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Age);
+      }
+      modelList_.WriteTo(output, _repeated_modelList_codec);
+      if (model_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Model);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -158,6 +228,13 @@ namespace GRpc.Model {
       }
       if (upTime_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(UpTime);
+      }
+      if (Age != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Age);
+      }
+      size += modelList_.CalculateSize(_repeated_modelList_codec);
+      if (model_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Model);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -179,6 +256,16 @@ namespace GRpc.Model {
         }
         UpTime.MergeFrom(other.UpTime);
       }
+      if (other.Age != 0) {
+        Age = other.Age;
+      }
+      modelList_.Add(other.modelList_);
+      if (other.model_ != null) {
+        if (model_ == null) {
+          Model = new global::GRpc.Model.TestModel();
+        }
+        Model.MergeFrom(other.Model);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -199,6 +286,21 @@ namespace GRpc.Model {
               UpTime = new global::Google.Protobuf.WellKnownTypes.Timestamp();
             }
             input.ReadMessage(UpTime);
+            break;
+          }
+          case 24: {
+            Age = input.ReadInt32();
+            break;
+          }
+          case 34: {
+            modelList_.AddEntriesFrom(input, _repeated_modelList_codec);
+            break;
+          }
+          case 42: {
+            if (model_ == null) {
+              Model = new global::GRpc.Model.TestModel();
+            }
+            input.ReadMessage(Model);
             break;
           }
         }
@@ -236,6 +338,7 @@ namespace GRpc.Model {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HelloReply(HelloReply other) : this() {
       message_ = other.message_;
+      modelList_ = other.modelList_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -255,6 +358,16 @@ namespace GRpc.Model {
       }
     }
 
+    /// <summary>Field number for the "ModelList" field.</summary>
+    public const int ModelListFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::GRpc.Model.TestModel> _repeated_modelList_codec
+        = pb::FieldCodec.ForMessage(18, global::GRpc.Model.TestModel.Parser);
+    private readonly pbc::RepeatedField<global::GRpc.Model.TestModel> modelList_ = new pbc::RepeatedField<global::GRpc.Model.TestModel>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::GRpc.Model.TestModel> ModelList {
+      get { return modelList_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as HelloReply);
@@ -269,6 +382,7 @@ namespace GRpc.Model {
         return true;
       }
       if (Message != other.Message) return false;
+      if(!modelList_.Equals(other.modelList_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -276,6 +390,7 @@ namespace GRpc.Model {
     public override int GetHashCode() {
       int hash = 1;
       if (Message.Length != 0) hash ^= Message.GetHashCode();
+      hash ^= modelList_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -293,6 +408,7 @@ namespace GRpc.Model {
         output.WriteRawTag(10);
         output.WriteString(Message);
       }
+      modelList_.WriteTo(output, _repeated_modelList_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -304,6 +420,7 @@ namespace GRpc.Model {
       if (Message.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
+      size += modelList_.CalculateSize(_repeated_modelList_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -318,6 +435,7 @@ namespace GRpc.Model {
       if (other.Message.Length != 0) {
         Message = other.Message;
       }
+      modelList_.Add(other.modelList_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -331,6 +449,195 @@ namespace GRpc.Model {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+          case 18: {
+            modelList_.AddEntriesFrom(input, _repeated_modelList_codec);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class TestModel : pb::IMessage<TestModel> {
+    private static readonly pb::MessageParser<TestModel> _parser = new pb::MessageParser<TestModel>(() => new TestModel());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<TestModel> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::GRpc.Model.UserReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestModel() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestModel(TestModel other) : this() {
+      key_ = other.key_;
+      mong_ = other.mong_;
+      corpus_ = other.corpus_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public TestModel Clone() {
+      return new TestModel(this);
+    }
+
+    /// <summary>Field number for the "key" field.</summary>
+    public const int KeyFieldNumber = 1;
+    private string key_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Key {
+      get { return key_; }
+      set {
+        key_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "mong" field.</summary>
+    public const int MongFieldNumber = 2;
+    private double mong_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Mong {
+      get { return mong_; }
+      set {
+        mong_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "corpus" field.</summary>
+    public const int CorpusFieldNumber = 3;
+    private global::GRpc.Model.Corpus corpus_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::GRpc.Model.Corpus Corpus {
+      get { return corpus_; }
+      set {
+        corpus_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as TestModel);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(TestModel other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Key != other.Key) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Mong, other.Mong)) return false;
+      if (Corpus != other.Corpus) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Key.Length != 0) hash ^= Key.GetHashCode();
+      if (Mong != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Mong);
+      if (Corpus != 0) hash ^= Corpus.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Key.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Key);
+      }
+      if (Mong != 0D) {
+        output.WriteRawTag(17);
+        output.WriteDouble(Mong);
+      }
+      if (Corpus != 0) {
+        output.WriteRawTag(24);
+        output.WriteEnum((int) Corpus);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Key.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Key);
+      }
+      if (Mong != 0D) {
+        size += 1 + 8;
+      }
+      if (Corpus != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Corpus);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(TestModel other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Key.Length != 0) {
+        Key = other.Key;
+      }
+      if (other.Mong != 0D) {
+        Mong = other.Mong;
+      }
+      if (other.Corpus != 0) {
+        Corpus = other.Corpus;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Key = input.ReadString();
+            break;
+          }
+          case 17: {
+            Mong = input.ReadDouble();
+            break;
+          }
+          case 24: {
+            Corpus = (global::GRpc.Model.Corpus) input.ReadEnum();
             break;
           }
         }

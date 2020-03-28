@@ -16,9 +16,29 @@ service Greeter {
 message HelloRequest {
   string name = 1;
   google.protobuf.Timestamp up_time=2;
+  int32 age = 3 ;
+  repeated TestModel ModelList = 4;
+  TestModel Model = 5;
 }
 
 // The response message containing the greetings.
 message HelloReply {
   string message = 1;
+  repeated TestModel ModelList = 2;
+}
+
+message TestModel{
+    string key = 1;
+    double mong = 2;
+    Corpus corpus = 3;
+} 
+
+enum Corpus {
+	UNIVERSAL = 0;
+	WEB = 1;
+	IMAGES = 2;
+	LOCAL = 3;
+	NEWS = 4;
+	PRODUCTS = 5;
+	VIDEO = 6;
 }

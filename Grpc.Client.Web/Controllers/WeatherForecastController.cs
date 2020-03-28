@@ -2,38 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Google.Protobuf.Collections;
+using GRpc.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Grpc.Client.Web.Controllers
+namespace GRpc.Client.Web.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly Greeter.GreeterClient _greeterClient;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, Greeter.GreeterClient greeterClient)
         {
             _logger = logger;
+            _greeterClient = greeterClient;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<HelloReply> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var testModel = new RepeatedField<TestModel>()
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                new TestModel
+                {
+                    Corpus = Corpus.Images,
+                    Key = "aaa",
+                    Mong = 999
+                }
+            };
+            var helloRequest = new HelloRequest
+            {
+                Name = "那敌对",
+                UpTime = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTime(DateTime.Now.ToUniversalTime())
+            };
+            helloRequest.ModelList.AddRange(testModel);
+            var result = await _greeterClient.SayHelloAsync(helloRequest);
+            return result;
         }
     }
 }
