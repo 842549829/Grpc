@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Server", "GRpc.Server\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Model", "GRpc.Model\GRpc.Model.csproj", "{EF6D2AAB-4DDA-4860-ABB9-8E1A61676541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRpc.Client.Web", "GRpc.Client.Web\GRpc.Client.Web.csproj", "{B2EB1A5A-3EBF-4C71-B6BC-41E03AD6EEDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GRpc.Client.Web", "GRpc.Client.Web\GRpc.Client.Web.csproj", "{B2EB1A5A-3EBF-4C71-B6BC-41E03AD6EEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discovery", "Discovery\Discovery.csproj", "{390D8AB3-BF63-45F6-A146-113D67379AAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B2EB1A5A-3EBF-4C71-B6BC-41E03AD6EEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2EB1A5A-3EBF-4C71-B6BC-41E03AD6EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2EB1A5A-3EBF-4C71-B6BC-41E03AD6EEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{390D8AB3-BF63-45F6-A146-113D67379AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{390D8AB3-BF63-45F6-A146-113D67379AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{390D8AB3-BF63-45F6-A146-113D67379AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{390D8AB3-BF63-45F6-A146-113D67379AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
