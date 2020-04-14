@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
 using System;
 using System.Net.Http;
+using Discovery;
+using Discovery.Client;
 
 namespace GRpc.Client.Web.GRpcClient
 {
@@ -8,10 +10,10 @@ namespace GRpc.Client.Web.GRpcClient
     {
         public HttpClient Client { get; private set; }
 
-        public GRpcHttpClient(IOptionsSnapshot<GRpcHttpClientOptions> optionsSnapshot, HttpClient httpClient)
+        public GRpcHttpClient(IOptionsSnapshot<DiscoveryOptions> optionsSnapshot, HttpClient httpClient, IAddressSelector addressSelector)
         {
-            var options = optionsSnapshot.Value;
-            httpClient.BaseAddress = new Uri($"{options.Scheme}://{options.Host}:{options.Port}");
+            var url = addressSelector.Selector(optionsSnapshot.Value.ServiceName);
+            httpClient.BaseAddress = new Uri(url);
             Client = httpClient;
         }
     }

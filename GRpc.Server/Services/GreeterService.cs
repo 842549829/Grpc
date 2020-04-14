@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Consul;
 using Google.Protobuf.Collections;
 using Grpc.Core;
 using GRpc.Model;

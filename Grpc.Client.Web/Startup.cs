@@ -1,4 +1,5 @@
 using System;
+using Discovery;
 using GRpc.Client.Web.GRpcClient;
 using GRpc.Model;
 using Grpc.Net.Client;
@@ -25,8 +26,9 @@ namespace GRpc.Client.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<GRpcHttpClientOptions>(Configuration.GetSection("GRpcHttpClient"));
             services.AddHttpClient<GRpcHttpClient>();
+            services.Configure<DiscoveryOptions>(Configuration.GetSection("DiscoveryOptions"));
+            services.AddClientDiscovery();
             services.AddScoped(serviceProvider =>
             {
                 var httpClient = serviceProvider.GetRequiredService<GRpcHttpClient>();

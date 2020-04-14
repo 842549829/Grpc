@@ -26,7 +26,7 @@ namespace GRpc.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<DiscoveryOptions>(Configuration.GetSection("DiscoveryOptions"));
-            services.AddDiscovery(option => { });
+            services.AddClientDiscovery();
             services.AddGrpc();
         }
 

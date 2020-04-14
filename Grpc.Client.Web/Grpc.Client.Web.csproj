@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Discovery\Discovery.csproj" />
     <ProjectReference Include="..\GRpc.Model\GRpc.Model.csproj" />
   </ItemGroup>
 
