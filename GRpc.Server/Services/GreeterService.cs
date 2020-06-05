@@ -12,7 +12,7 @@ namespace GRpc.Server.Services
         {
             var result = new HelloReply
             {
-                Message = "Hello " + request.Name + "  " + request.UpTime.ToDateTime().ToString("yyyy-mm-dd:mm:ss")
+                Message = "Hello " + request.Name + "  " + new DateTime(request.UpTime.Seconds).ToString("yyyy-MM-dd hh:mm:ss")
             };
             result.ModelList.AddRange(request.ModelList);
             return Task.FromResult(result);
