@@ -24,8 +24,8 @@ namespace GRpc.Client
                 for (int i = 0; i < 1; i++)
                 {
                     var reply = await client.SayHelloAsync(
-                        new HelloRequest { Name = "GreeterClient", UpTime = new Google.Protobuf.WellKnownTypes.Timestamp { Seconds = 5851444 } });
-                    //Console.WriteLine("Greeting: " + reply.Message);
+                        new HelloRequest { Name = "GreeterClient", UpTime = new Google.Protobuf.WellKnownTypes.Timestamp { Seconds = DateTime.Now.Ticks } });
+                    Console.WriteLine("Greeting: " + reply.Message);
                 }
 
                 st.Stop();
